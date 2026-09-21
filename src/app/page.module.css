@@ -22,7 +22,7 @@
   width: 100%;
   max-width: 480px;
   aspect-ratio: 4/5;
-  background-image: url('/hero_image.jpg');
+  background-image: url('/my-websites/hero_image.jpg');
   background-size: cover;
   background-position: center;
   border-radius: var(--rounded-md);
@@ -103,10 +103,10 @@
   width: 100%;
 }
 
-.cardPhoto1 { background-image: url('/online_diyet.jpg'); }
-.cardPhoto2 { background-image: url('/yuz_yuze.jpg'); }
-.cardPhoto3 { background-image: url('/sporcu.jpg'); }
-.cardPhoto4 { background-image: url('/anne_cocuk.jpg'); }
+.cardPhoto1 { background-image: url('/my-websites/online_diyet.jpg'); }
+.cardPhoto2 { background-image: url('/my-websites/yuz_yuze.jpg'); }
+.cardPhoto3 { background-image: url('/my-websites/sporcu.jpg'); }
+.cardPhoto4 { background-image: url('/my-websites/anne_cocuk.jpg'); }
 
 .seoSection {
   background-color: var(--colors-surface-soft);

@@ -23,9 +23,9 @@
   width: 100%;
 }
 
-.cardPhoto1 { background-image: url('/online_diyet.jpg'); }
-.cardPhoto2 { background-image: url('/yuz_yuze.jpg'); }
-.cardPhoto3 { background-image: url('/sporcu.jpg'); }
+.cardPhoto1 { background-image: url('/my-websites/online_diyet.jpg'); }
+.cardPhoto2 { background-image: url('/my-websites/yuz_yuze.jpg'); }
+.cardPhoto3 { background-image: url('/my-websites/sporcu.jpg'); }
 
 .guestFavoriteBadge {
   position: absolute;

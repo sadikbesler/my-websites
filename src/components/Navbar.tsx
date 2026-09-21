@@ -9,7 +9,7 @@ export default function Navbar() {
         {/* Logo Area */}
         <div className={styles.logo}>
           <Link href="/">
-            <Image src="/dyt_logo.jpg" alt="Dyt. Merkez Logo" width={140} height={40} style={{ objectFit: 'contain' }} />
+            <Image src="/my-websites/dyt_logo.jpg" alt="Dyt. Merkez Logo" width={140} height={40} style={{ objectFit: 'contain' }} />
           </Link>
         </div>
 
