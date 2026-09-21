@@ -1,0 +1,22 @@
+.calcGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.calcCard {
+  max-width: 100%;
+}
+
+.resultBox {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--colors-hairline);
+  text-align: center;
+}
+
+@media (max-width: 744px) {
+  .calcGrid {
+    grid-template-columns: 1fr;
+  }
+}

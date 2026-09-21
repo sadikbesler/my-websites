@@ -1,0 +1,73 @@
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.packageCard {
+  border: 1px solid var(--colors-hairline);
+  border-radius: var(--rounded-md);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.packageCard:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.cardPhoto1, .cardPhoto2, .cardPhoto3 {
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 100%;
+}
+
+.cardPhoto1 { background-image: url('/online_diyet.jpg'); }
+.cardPhoto2 { background-image: url('/yuz_yuze.jpg'); }
+.cardPhoto3 { background-image: url('/sporcu.jpg'); }
+
+.guestFavoriteBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: var(--colors-canvas);
+  padding: 4px 12px;
+  border-radius: var(--rounded-full);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--colors-ink);
+  box-shadow: var(--shadow-hover);
+}
+
+.cardContent {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.priceRow {
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--colors-hairline-soft);
+  padding-top: var(--spacing-md);
+}
+
+.fullBtn {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 744px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}

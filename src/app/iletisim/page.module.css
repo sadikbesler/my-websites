@@ -1,0 +1,33 @@
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xxl);
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.infoItem {
+  background-color: var(--colors-surface-soft);
+  padding: var(--spacing-lg);
+  border-radius: var(--rounded-sm);
+}
+
+.mapPlaceholder {
+  height: 240px;
+  background-color: var(--colors-surface-strong);
+  border-radius: var(--rounded-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--spacing-md);
+}
+
+@media (max-width: 1024px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
