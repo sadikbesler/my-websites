@@ -1,105 +1,89 @@
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.home}>
+    <main className={styles.main}>
       {/* Hero Section */}
-      <section className={styles.heroSection}>
-        <div className={`container ${styles.heroContainer}`}>
-          <div className={styles.heroContent}>
-            <h1 className="display-xl">Gelecekteki sağlığınız için ilham alın.</h1>
-            <p className="body-md text-muted" style={{ marginTop: "16px", marginBottom: "32px", maxWidth: "480px" }}>
-              Kişiye özel beslenme programları ve bilimsel yaklaşımlarla hedeflerinize ulaşın. Aç kalmadan, sağlıklı ve kalıcı kilo yönetimi.
-            </p>
-            <div className={styles.heroSearch}>
-              <Link href="/randevu" className={styles.searchBarPill}>
-                <div className={styles.searchSegment}>
-                  <span className="caption">Nerede</span>
-                  <span className="body-sm text-muted">Online veya Yüz Yüze</span>
-                </div>
-                <div className={styles.searchSegment}>
-                  <span className="caption">Ne Zaman</span>
-                  <span className="body-sm text-muted">Size Uygun Tarih</span>
-                </div>
-                <div className={styles.searchOrb}>
-                  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style={{display: "block", fill: "none", height: "16px", width: "16px", stroke: "currentColor", strokeWidth: "4", overflow: "visible"}}>
-                    <g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g>
-                  </svg>
-                </div>
-              </Link>
-            </div>
-          </div>
-          <div className={styles.heroImageWrapper}>
-            {/* Using a solid soft color block instead of placeholder images to stay premium without real photos */}
-            <div className={styles.heroPhotoPlaceholder}>
-              <div className={styles.guestFavoriteBadge}>Misafir Favorisi</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Categories / Highlights Section */}
-      <section className={`section container`}>
-        <h2 className="display-lg" style={{ marginBottom: "32px" }}>Öne Çıkan Hizmetler</h2>
-        <div className={styles.grid}>
-          {/* Card 1 */}
-          <Link href="/hizmetler" className="property-card">
-            <div className={styles.cardPhoto1}></div>
-            <div>
-              <h3 className="title-md">Online Diyet Danışmanlığı</h3>
-              <p className="body-sm text-muted">Dünyanın her yerinden</p>
-              <p className="body-sm text-muted" style={{ marginTop: "4px" }}>Aylık Paket</p>
-            </div>
-          </Link>
-          {/* Card 2 */}
-          <Link href="/hizmetler" className="property-card">
-            <div className={styles.cardPhoto2}></div>
-            <div>
-              <h3 className="title-md">Yüz Yüze Görüşme</h3>
-              <p className="body-sm text-muted">Nişantaşı, İstanbul</p>
-              <p className="body-sm text-muted" style={{ marginTop: "4px" }}>Tek Seans</p>
-            </div>
-          </Link>
-          {/* Card 3 */}
-          <Link href="/hizmetler" className="property-card">
-            <div className={styles.cardPhoto3}></div>
-            <div>
-              <h3 className="title-md">Sporcu Beslenmesi</h3>
-              <p className="body-sm text-muted">Performans odaklı</p>
-              <p className="body-sm text-muted" style={{ marginTop: "4px" }}>Aylık Paket</p>
-            </div>
-          </Link>
-          {/* Card 4 */}
-          <Link href="/hizmetler" className="property-card">
-            <div className={styles.cardPhoto4}></div>
-            <div>
-              <h3 className="title-md">Anne ve Çocuk Beslenmesi</h3>
-              <p className="body-sm text-muted">Gebelik ve sonrası</p>
-              <p className="body-sm text-muted" style={{ marginTop: "4px" }}>Haftalık Kontrol</p>
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* SEO Section / Trust Indicators */}
-      <section className={`section ${styles.seoSection}`}>
+      <section className={`${styles.heroSection} gradient-bg`}>
         <div className="container">
-          <div className={styles.seoGrid}>
-            <div>
-              <h4 className="display-sm">Neden Biz?</h4>
-              <p className="body-md text-muted" style={{ marginTop: "12px" }}>
-                Kalıplaşmış diyet listeleri yerine yaşam tarzınıza uygun, sürdürülebilir beslenme alışkanlıkları kazanmanızı hedefliyoruz. Amacımız sadece kilo vermek veya almak değil, sağlıklı bir yaşam kalitesine ulaşmanızdır.
-              </p>
+          <h1 className="hero-title">
+            Healthy living, <br />
+            not guesswork.
+          </h1>
+          <p className="hero-subtitle">
+            Personalised nutrition plans that actually sound like you. <br />
+            Enjoy unlimited, science-backed guidance to reach your goals.
+          </p>
+          
+          <div className={styles.heroButtons}>
+            <Link href="/randevu" className="btn btn-primary">Sign up for free</Link>
+            <Link href="/hizmetler" className="btn btn-outline">Book a demo</Link>
+          </div>
+
+          <div className={styles.heroImageContainer}>
+            <Image 
+              src="/my-websites/hero_image.jpg" 
+              alt="Platform Dashboard" 
+              width={900} 
+              height={500} 
+              className={styles.heroImage} 
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Features Bento Grid */}
+      <section className={styles.featuresSection}>
+        <div className="container">
+          <h2 className="section-title">Nutrition plans have<br/>never been easier</h2>
+          
+          <div className={styles.bentoGrid}>
+            <div className={`bento-card ${styles.featureCard}`}>
+              <div className={styles.featureIcon}>🌍</div>
+              <h3 className={styles.featureTitle}>Online Consultation</h3>
+              <p className={styles.featureDesc}>Get personalized advice from anywhere in the world. Upload your past documents and we'll learn your style.</p>
+              <div className={`${styles.featureImage} ${styles.img1}`}></div>
             </div>
-            <div className={styles.ratingCard}>
-              <div className="display-xl" style={{ fontSize: "64px", lineHeight: 1.1 }}>4.95</div>
-              <div className="title-md" style={{ marginTop: "8px" }}>Danışan Memnuniyeti</div>
-              <div className="body-sm text-muted" style={{ marginTop: "4px" }}>200+ başarılı sonuç</div>
+
+            <div className={`bento-card ${styles.featureCard}`}>
+              <div className={styles.featureIcon}>📍</div>
+              <h3 className={styles.featureTitle}>Face to Face</h3>
+              <p className={styles.featureDesc}>Visit our clinic in Nişantaşı for an in-depth body analysis and a face-to-face consultation.</p>
+              <div className={`${styles.featureImage} ${styles.img2}`}></div>
+            </div>
+
+            <div className={`bento-card ${styles.featureCard}`}>
+              <div className={styles.featureIcon}>⚡️</div>
+              <h3 className={styles.featureTitle}>Sports Nutrition</h3>
+              <p className={styles.featureDesc}>Supercharge your performance with macros crafted for your specific sport and training schedule.</p>
+              <div className={`${styles.featureImage} ${styles.img3}`}></div>
+            </div>
+
+            <div className={`bento-card ${styles.featureCard}`}>
+              <div className={styles.featureIcon}>👶</div>
+              <h3 className={styles.featureTitle}>Mother & Child</h3>
+              <p className={styles.featureDesc}>Safe and healthy diet plans ensuring the best development for your child and your recovery.</p>
+              <div className={`${styles.featureImage} ${styles.img4}`}></div>
             </div>
           </div>
         </div>
       </section>
-    </div>
+
+      {/* Trust Section */}
+      <section className={styles.trustSection}>
+        <div className="container">
+          <h2>Trusted by<br/>top professionals</h2>
+          <div className={styles.trustLogos}>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--colors-text-secondary)' }}>ACME Corp</h3>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--colors-text-secondary)' }}>HealthPlus</h3>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--colors-text-secondary)' }}>NutriLife</h3>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--colors-text-secondary)' }}>FitGen</h3>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

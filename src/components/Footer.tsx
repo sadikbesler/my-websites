@@ -3,45 +3,45 @@ import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className={styles.footerLight}>
+    <footer className={styles.footer}>
       <div className={`container ${styles.footerContainer}`}>
-        <div className={styles.footerGrid}>
-          {/* Column 1 */}
-          <div className={styles.footerColumn}>
-            <h4 className={styles.columnTitle}>Hizmetler</h4>
-            <Link href="/hizmetler" className={styles.footerLink}>Online Diyet</Link>
-            <Link href="/hizmetler" className={styles.footerLink}>Yüz Yüze Görüşme</Link>
-            <Link href="/hizmetler" className={styles.footerLink}>Sporcu Beslenmesi</Link>
-            <Link href="/hizmetler" className={styles.footerLink}>Kurumsal Danışmanlık</Link>
-          </div>
+        
+        <div className={styles.footerBrand}>
+          <div className={styles.logo}>Dyt. Merkez</div>
+          <p className="text-muted" style={{ marginTop: '16px', fontSize: '0.9rem' }}>
+            Personalised nutrition plans that actually sound like you. <br/>
+            Enjoy unlimited, science-backed guidance to reach your goals.
+          </p>
+        </div>
 
-          {/* Column 2 */}
-          <div className={styles.footerColumn}>
-            <h4 className={styles.columnTitle}>Araçlar</h4>
-            <Link href="/hesaplamalar" className={styles.footerLink}>VKI Hesaplama</Link>
-            <Link href="/hesaplamalar" className={styles.footerLink}>Kalori İhtiyacı</Link>
-            <Link href="/hesaplamalar" className={styles.footerLink}>Su İhtiyacı</Link>
+        <div className={styles.footerLinks}>
+          <div className={styles.linkGroup}>
+            <h4>Platform</h4>
+            <ul>
+              <li><Link href="/hizmetler">Pricing</Link></li>
+              <li><Link href="/hesaplamalar">Calculators</Link></li>
+              <li><Link href="/randevu">Book Demo</Link></li>
+            </ul>
           </div>
-
-          {/* Column 3 */}
-          <div className={styles.footerColumn}>
-            <h4 className={styles.columnTitle}>İletişim</h4>
-            <span className={styles.footerLink}>Nişantaşı, İstanbul</span>
-            <Link href="mailto:iletisim@dytmerkez.com" className={styles.footerLink}>iletisim@dytmerkez.com</Link>
-            <Link href="/iletisim" className={styles.footerLink}>Bize Ulaşın</Link>
+          
+          <div className={styles.linkGroup}>
+            <h4>Company</h4>
+            <ul>
+              <li><Link href="/iletisim">Contact Us</Link></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      <div className={styles.legalBand}>
-        <div className={`container ${styles.legalContainer}`}>
-          <div className={styles.legalLeft}>
-            <span>© 2026 Dyt. Merkez. Tüm hakları saklıdır.</span>
-          </div>
-          <div className={styles.legalRight}>
-            <span className={styles.socialIcon}>Instagram</span>
-            <span className={styles.socialIcon}>Facebook</span>
-            <span className={styles.socialIcon}>Twitter</span>
+      </div>
+      
+      <div className={styles.footerBottom}>
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <p>&copy; {new Date().getFullYear()} Dyt. Merkez. All rights reserved.</p>
+          <div style={{ display: 'flex', gap: '16px' }}>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
           </div>
         </div>
       </div>

@@ -1,64 +1,70 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 
-export const metadata = {
-  title: "Paketler & Hizmetler | Diyetisyen Merkez",
-  description: "İhtiyacınıza en uygun diyet paketini seçin: Online diyet, yüz yüze görüşme, sporcu beslenmesi ve kurumsal danışmanlık seçenekleri.",
-};
-
-export default function Hizmetler() {
+export default function Services() {
   return (
-    <div className="container section">
-      <h1 className="display-xl" style={{ marginBottom: "16px" }}>Sizin İçin En Uygun Planı Seçin</h1>
-      <p className="body-md text-muted" style={{ marginBottom: "48px", maxWidth: "600px" }}>
-        Her bireyin metabolizması, yaşam tarzı ve hedefleri farklıdır. Bu nedenle size en uygun paketi seçerek, sağlıklı bir hayata ilk adımı atabilirsiniz.
-      </p>
-
-      <div className={styles.servicesGrid}>
-        {/* Package 1 */}
-        <div className={`property-card ${styles.packageCard}`}>
-          <div className={styles.cardPhoto1}>
-            <div className={styles.guestFavoriteBadge}>En Çok Tercih Edilen</div>
+    <main className="gradient-bg" style={{ minHeight: '100vh' }}>
+      <section className={styles.pricingSection}>
+        <div className="container">
+          <div className={styles.pricingHeader}>
+            <h1>Flexible pricing</h1>
+            <p className="body-lg text-muted">Transparent plans tailored for your nutrition journey.</p>
           </div>
-          <div className={styles.cardContent}>
-            <h2 className="title-md">1 Aylık Online Diyet</h2>
-            <p className="body-sm text-muted" style={{ marginTop: "4px" }}>Dünyanın her yerinden, size özel haftalık listeler ve WhatsApp takibi.</p>
-            <div className={styles.priceRow}>
-              <span className="body-sm text-muted">Aylık</span>
-              <span className="title-md">₺1.500</span>
+
+          <div className={styles.pricingGrid}>
+            
+            {/* Basic Plan */}
+            <div className={styles.pricingCard}>
+              <h3 className={styles.planName}>Online Starter</h3>
+              <div className={styles.planPrice}>₺1,500<span style={{fontSize: '1rem', color: 'var(--colors-text-secondary)', fontWeight: 400}}>/mo</span></div>
+              <p className={styles.planDesc}>For those who want standard monthly tracking.</p>
+              
+              <ul className={styles.featuresList}>
+                <li><span className={styles.checkIcon}>✓</span> Initial Assessment</li>
+                <li><span className={styles.checkIcon}>✓</span> 2 Online Meetings / mo</li>
+                <li><span className={styles.checkIcon}>✓</span> WhatsApp Support</li>
+                <li><span className={styles.checkIcon}>✓</span> Standard Diet Plan</li>
+              </ul>
+              
+              <Link href="/randevu" className={`btn btn-outline ${styles.btnFull}`}>Start for Free</Link>
             </div>
-            <Link href="/randevu" className={`button-primary ${styles.fullBtn}`}>Hemen Başla</Link>
+
+            {/* Pro Plan */}
+            <div className={`${styles.pricingCard} ${styles.popular}`}>
+              <div className={styles.popularBadge}>MOST POPULAR</div>
+              <h3 className={styles.planName}>Face-to-Face Pro</h3>
+              <div className={styles.planPrice}>₺3,000<span style={{fontSize: '1rem', color: 'var(--colors-text-secondary)', fontWeight: 400}}>/mo</span></div>
+              <p className={styles.planDesc}>For dedicated results with clinical body analysis.</p>
+              
+              <ul className={styles.featuresList}>
+                <li><span className={styles.checkIcon}>✓</span> Full Body Composition</li>
+                <li><span className={styles.checkIcon}>✓</span> 4 Clinic Visits / mo</li>
+                <li><span className={styles.checkIcon}>✓</span> Unlimited WhatsApp</li>
+                <li><span className={styles.checkIcon}>✓</span> Dynamic Adjustments</li>
+              </ul>
+              
+              <Link href="/randevu" className={`btn btn-primary ${styles.btnFull}`}>Book a Demo</Link>
+            </div>
+
+            {/* Enterprise / Special */}
+            <div className={styles.pricingCard}>
+              <h3 className={styles.planName}>Sports & Athlete</h3>
+              <div className={styles.planPrice}>Custom</div>
+              <p className={styles.planDesc}>For professional athletes and intense training blocks.</p>
+              
+              <ul className={styles.featuresList}>
+                <li><span className={styles.checkIcon}>✓</span> Pre/Post Workout Macros</li>
+                <li><span className={styles.checkIcon}>✓</span> Supplement Protocol</li>
+                <li><span className={styles.checkIcon}>✓</span> Priority Support</li>
+                <li><span className={styles.checkIcon}>✓</span> Event Day Planning</li>
+              </ul>
+              
+              <Link href="/iletisim" className={`btn btn-outline ${styles.btnFull}`}>Contact Us</Link>
+            </div>
+
           </div>
         </div>
-
-        {/* Package 2 */}
-        <div className={`property-card ${styles.packageCard}`}>
-          <div className={styles.cardPhoto2}></div>
-          <div className={styles.cardContent}>
-            <h2 className="title-md">Yüz Yüze Görüşme</h2>
-            <p className="body-sm text-muted" style={{ marginTop: "4px" }}>Nişantaşı kliniğimizde detaylı vücut analizi ve yüz yüze değerlendirme.</p>
-            <div className={styles.priceRow}>
-              <span className="body-sm text-muted">Seans Başı</span>
-              <span className="title-md">₺800</span>
-            </div>
-            <Link href="/randevu" className={`button-primary ${styles.fullBtn}`}>Randevu Al</Link>
-          </div>
-        </div>
-
-        {/* Package 3 */}
-        <div className={`property-card ${styles.packageCard}`}>
-          <div className={styles.cardPhoto3}></div>
-          <div className={styles.cardContent}>
-            <h2 className="title-md">Sporcu Beslenmesi</h2>
-            <p className="body-sm text-muted" style={{ marginTop: "4px" }}>Antrenman performansını artırmaya yönelik makro odaklı özel planlama.</p>
-            <div className={styles.priceRow}>
-              <span className="body-sm text-muted">Aylık</span>
-              <span className="title-md">₺2.000</span>
-            </div>
-            <Link href="/randevu" className={`button-secondary ${styles.fullBtn}`}>İletişime Geç</Link>
-          </div>
-        </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

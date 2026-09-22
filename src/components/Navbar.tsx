@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
 
@@ -9,31 +8,34 @@ export default function Navbar() {
         {/* Logo Area */}
         <div className={styles.logo}>
           <Link href="/">
-            <Image src="/my-websites/dyt_logo.jpg" alt="Dyt. Merkez Logo" width={140} height={40} style={{ objectFit: 'contain' }} />
+            Dyt. Merkez
           </Link>
         </div>
 
         {/* Product Tabs (Centered) */}
         <div className={styles.productTabs}>
           <Link href="/" className={styles.tab}>
-            Ana Sayfa
+            Platform
           </Link>
           <Link href="/hizmetler" className={styles.tab}>
-            Paketler
-            <span className={styles.newTag}>YENİ</span>
+            Plans
+            <span className={styles.newTag}>NEW</span>
           </Link>
           <Link href="/hesaplamalar" className={styles.tab}>
-            Hesaplamalar
+            Tools
           </Link>
           <Link href="/iletisim" className={styles.tab}>
-            İletişim
+            Contact
           </Link>
         </div>
 
-        {/* Utilities (Right) */}
-        <div className={styles.utilities}>
-          <Link href="/randevu" className={`button-primary ${styles.reserveBtn}`}>
-            Randevu Al
+        {/* Action Buttons */}
+        <div className={styles.userActions}>
+          <Link href="/iletisim" className={styles.navLink}>
+            Log in
+          </Link>
+          <Link href="/randevu" className="btn btn-primary">
+            Book a Demo
           </Link>
         </div>
       </div>

@@ -3,119 +3,110 @@
 import { useState } from "react";
 import styles from "./page.module.css";
 
-export default function Hesaplamalar() {
+export default function Calculators() {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
-  const [bmiResult, setBmiResult] = useState<number | null>(null);
+  const [bmi, setBmi] = useState<number | null>(null);
+  
+  const [waterWeight, setWaterWeight] = useState("");
+  const [waterNeeded, setWaterNeeded] = useState<number | null>(null);
 
   const calculateBMI = (e: React.FormEvent) => {
     e.preventDefault();
     const w = parseFloat(weight);
-    const h = parseFloat(height) / 100; // cm to m
+    const h = parseFloat(height) / 100;
     if (w > 0 && h > 0) {
-      setBmiResult(Number((w / (h * h)).toFixed(2)));
+      setBmi(w / (h * h));
     }
   };
-
-  const [waterWeight, setWaterWeight] = useState("");
-  const [waterResult, setWaterResult] = useState<number | null>(null);
 
   const calculateWater = (e: React.FormEvent) => {
     e.preventDefault();
     const w = parseFloat(waterWeight);
     if (w > 0) {
-      setWaterResult(Number((w * 0.035).toFixed(2))); // 35ml per kg
+      setWaterNeeded(w * 0.033);
     }
   };
 
-  const getBMICategory = (bmi: number) => {
-    if (bmi < 18.5) return "Zayıf";
-    if (bmi < 24.9) return "Normal Kilolu";
-    if (bmi < 29.9) return "Fazla Kilolu";
-    return "Obezite";
-  };
-
   return (
-    <div className="container section">
-      <h1 className="display-xl" style={{ marginBottom: "16px" }}>Sağlık Hesaplamaları</h1>
-      <p className="body-md text-muted" style={{ marginBottom: "48px", maxWidth: "600px" }}>
-        Vücut kitle indeksinizi (VKI) ve günlük su ihtiyacınızı kolayca hesaplayın. Bu değerler size sağlıklı yaşam yolculuğunuzda rehberlik edecektir.
-      </p>
-
-      <div className={styles.calcGrid}>
-        {/* VKI Hesaplama */}
-        <div className={`reservation-card ${styles.calcCard}`}>
-          <h2 className="display-md" style={{ marginBottom: "24px" }}>VKI Hesaplama</h2>
-          <form onSubmit={calculateBMI}>
-            <div className="form-group">
-              <label>Kilo (kg)</label>
-              <input
-                type="number"
-                className="text-input"
-                placeholder="Örn: 70"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>Boy (cm)</label>
-              <input
-                type="number"
-                className="text-input"
-                placeholder="Örn: 175"
-                value={height}
-                onChange={(e) => setHeight(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit" className="button-primary" style={{ width: "100%", marginTop: "8px" }}>
-              Hesapla
-            </button>
-          </form>
-
-          {bmiResult && (
-            <div className={styles.resultBox}>
-              <div className="body-sm text-muted">Vücut Kitle İndeksiniz</div>
-              <div className="display-lg" style={{ margin: "4px 0" }}>{bmiResult}</div>
-              <div className="title-md" style={{ color: "var(--colors-primary)" }}>
-                Durum: {getBMICategory(bmiResult)}
-              </div>
-            </div>
-          )}
+    <main className={`gradient-bg ${styles.toolsSection}`}>
+      <div className="container">
+        <div className={styles.header}>
+          <h1>Health Tools</h1>
+          <p className="body-lg text-muted">Intelligent macros and calculations to kickstart your journey.</p>
         </div>
 
-        {/* Su İhtiyacı Hesaplama */}
-        <div className={`reservation-card ${styles.calcCard}`}>
-          <h2 className="display-md" style={{ marginBottom: "24px" }}>Su İhtiyacı</h2>
-          <form onSubmit={calculateWater}>
-            <div className="form-group">
-              <label>Kilo (kg)</label>
-              <input
-                type="number"
-                className="text-input"
-                placeholder="Örn: 70"
-                value={waterWeight}
-                onChange={(e) => setWaterWeight(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit" className="button-primary" style={{ width: "100%", marginTop: "8px" }}>
-              Hesapla
-            </button>
-          </form>
-
-          {waterResult && (
-            <div className={styles.resultBox}>
-              <div className="body-sm text-muted">Günlük Su İhtiyacınız</div>
-              <div className="display-lg" style={{ margin: "4px 0" }}>{waterResult} Litre</div>
-              <div className="body-sm text-muted">
-                *Ortalama 35ml/kg üzerinden hesaplanmıştır. Egzersiz durumunda artırılmalıdır.
+        <div className={styles.toolsGrid}>
+          
+          {/* BMI Tool */}
+          <div className="bento-card">
+            <h2 style={{ marginBottom: '16px' }}>BMI Calculator</h2>
+            <p className="text-muted" style={{ marginBottom: '24px' }}>Find out your Body Mass Index quickly and securely.</p>
+            
+            <form onSubmit={calculateBMI}>
+              <div className={styles.formGroup}>
+                <label className={styles.label}>Weight (kg)</label>
+                <input 
+                  type="number" 
+                  className={styles.input} 
+                  value={weight} 
+                  onChange={(e) => setWeight(e.target.value)} 
+                  placeholder="e.g. 70" 
+                  required 
+                />
               </div>
-            </div>
-          )}
+              <div className={styles.formGroup}>
+                <label className={styles.label}>Height (cm)</label>
+                <input 
+                  type="number" 
+                  className={styles.input} 
+                  value={height} 
+                  onChange={(e) => setHeight(e.target.value)} 
+                  placeholder="e.g. 175" 
+                  required 
+                />
+              </div>
+              <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Calculate BMI</button>
+            </form>
+
+            {bmi !== null && (
+              <div className={styles.resultBox}>
+                <div className={styles.resultTitle}>Your BMI is</div>
+                <div className={styles.resultValue}>{bmi.toFixed(1)}</div>
+              </div>
+            )}
+          </div>
+
+          {/* Water Tool */}
+          <div className="bento-card">
+            <h2 style={{ marginBottom: '16px' }}>Hydration Goal</h2>
+            <p className="text-muted" style={{ marginBottom: '24px' }}>Calculate your daily water needs based on your weight.</p>
+            
+            <form onSubmit={calculateWater}>
+              <div className={styles.formGroup}>
+                <label className={styles.label}>Weight (kg)</label>
+                <input 
+                  type="number" 
+                  className={styles.input} 
+                  value={waterWeight} 
+                  onChange={(e) => setWaterWeight(e.target.value)} 
+                  placeholder="e.g. 70" 
+                  required 
+                />
+              </div>
+              <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '80px' }}>Calculate Needs</button>
+            </form>
+
+            {waterNeeded !== null && (
+              <div className={styles.resultBox}>
+                <div className={styles.resultTitle}>Daily Water Goal</div>
+                <div className={styles.resultValue}>{waterNeeded.toFixed(1)} L</div>
+              </div>
+            )}
+          </div>
+
         </div>
       </div>
-    </div>
+    </main>
   );
 }
